@@ -7,8 +7,8 @@
 </ul>
 
 <%= simple_form_for [@offer, @reservation] do |r| %>
-  <%= r.input :date_checkin, as: :date, html5: true %>
-  <%= r.input :date_checkout, as: :date, html5: true%>
+  <%= r.input :date_checkin, as: :date %>
+  <%= r.input :date_checkout, as: :date %>
   <%= r.input :guests %>
   <%= r.button :submit, class: "btn btn-primary" %>
 <% end %>
