@@ -1,7 +1,12 @@
-<h1>Offers</h1>
+<div class="container">
+  <h1>Offers</h1>
 
-<% @offers.each do |offer| %>
-  <ul>
-    <li> <%= link_to offer.title, offer_path(offer) %></li>
-  </ul>
-<% end %>
+  <% @offers.each do |offer| %>
+    <ul>
+      <li> <%= link_to offer.title, offer_path(offer) %></li>
+    </ul>
+  <% end %>
+
+  <p> current_user.email: <%= current_user.email  %> </p>
+  <%= link_to "Create new offer", new_offer_path %>
+</div>
