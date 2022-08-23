@@ -1,20 +1,21 @@
-<h1>My reservations</h1><br><hr>
+<h1>Reservations Requests</h1><br><hr>
 
 <% @reservations.each do |reservation| %>
-  <h2>Reserva para <%= reservation.offer.title %></h2>
+  <h2>Reservation for: <%= reservation.offer.title %></h2>
   <ul>
+    <li>User: <%= @reservation.user.email %></li>
     <li>Check in: <%= reservation.date_checkin %></li>
     <li>Check out: <%= reservation.date_checkout %></li>
     <li>Guests: <%= reservation.guests %></li>
   </ul>
-  <%= link_to "Borrar", reservation_path(reservation), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:"ms-3 text-danger"  %>
-  <%= link_to "Editar reserva", edit_reservation_path(reservation), class:"ms-3 text-warning"  %>
-  <%= link_to "Ver Detalles", reservation_path(reservation), class:"ms-3 text-success"  %>
+  <%# <%= link_to "Borrar", reservation_path(reservation), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:"ms-3 text-danger"  %>
+  <%# <%= link_to "Editar reserva", edit_reservation_path(reservation), class:"ms-3 text-warning" %>
+  <%# <%= link_to "Ver Detalles", reservation_path(reservation), class:"ms-3 text-success"  %>
   <br><br>
 
   <%= simple_form_for reservation do |r| %>
   <%= r.input :confirmed %>
-  <%= r.button :submit, class: "btn btn-primary" %>
+  <%= r.submit "Confirm", class: "btn btn-primary" %>
   <% end %>
   <br><hr>
 <% end %>

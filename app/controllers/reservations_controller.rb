@@ -31,7 +31,7 @@ class ReservationsController < ApplicationController
 
   def update
     @reservation = Reservation.find(params[:id])
-    @reservation.update(date_checkin: params[:reservation][:date_checkin], date_checkout: params[:reservation][:date_checkout], guests: params[:reservation][:guests])
+    @reservation.update(reservation_params)
     redirect_to reservations_path
   end
 
@@ -40,6 +40,15 @@ class ReservationsController < ApplicationController
     @reservation.destroy
 
     redirect_to reservations_path, status: :see_other
+  end
+
+  def confirm
+    @reservation = Reservation.find(params[:id])
+    @reservation.confirmed = true
+  end
+
+  def my_reservations
+    index
   end
 
   private
