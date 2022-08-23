@@ -1,14 +1,21 @@
-<h1><%= @offer.title %></h1>
+<div class="container">
+  <h1><%= @offer.title %></h1>
 
-<ul>
-  <li>Un poco mas sobre el lugar: <%= @offer.description %></li>
-  <li>Ubicacion: <%= @offer.location %></li>
-  <li>Precio por noche: $<%= @offer.price_per_night %></li>
-</ul>
+  <ul>
+    <li>Un poco mas sobre el lugar: <%= @offer.description %></li>
+    <li>Ubicacion: <%= @offer.location %></li>
+    <li>Precio por noche: $<%= @offer.price_per_night %></li>
+  </ul>
 
-<%= simple_form_for [@offer, @reservation] do |r| %>
-  <%= r.input :date_checkin, as: :date, html5: true %>
-  <%= r.input :date_checkout, as: :date, html5: true%>
-  <%= r.input :guests %>
-  <%= r.button :submit, class: "btn btn-primary" %>
-<% end %>
+  <%= link_to "Edit offer", edit_offer_path %>
+
+  <%= link_to "Delete", offer_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+
+  <%= simple_form_for [@offer, @reservation] do |r| %>
+    <%= r.input :date_checkin, as: :date %>
+    <%= r.input :date_checkout, as: :date %>
+    <%= r.input :guests %>
+    <%= r.button :submit, class: "btn btn-primary" %>
+  <% end %>
+
+</div>
