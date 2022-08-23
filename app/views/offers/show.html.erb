@@ -7,6 +7,9 @@
     <li>Precio por noche: $<%= @offer.price_per_night %></li>
   </ul>
 
+ <%= link_to "Edit offer", edit_offer_path %>
+
+
   <%= simple_form_for [@offer, @reservation] do |r| %>
     <%= r.input :date_checkin, as: :date, html5: true %>
     <%= r.input :date_checkout, as: :date, html5: true%>

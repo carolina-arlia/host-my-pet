@@ -22,9 +22,14 @@ class OffersController < ApplicationController
   end
 
   def edit
+    @offer = Offer.find(params[:id])
   end
 
   def update
+    @offer = Offer.find(params[:id])
+    @offer.update(offer_params) # Will raise ActiveModel::ForbiddenAttributesError
+
+    redirect_to offers_path
   end
 
   def destroy
