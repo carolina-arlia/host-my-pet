@@ -5,3 +5,25 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+puts "Deleting offers"
+Offer.destroy_all
+
+puts "Creating offers"
+
+Offer.create!(user_id: 1, title: "Quinta en Pilar", description: "Muy lindo con mucho pasto y lugar para correr", location: "Pilar, Buenos Aires", price_per_night: 2000)
+Offer.create!(user_id: 1, title: "Hermosa casa en Escobar", description: "Super estadia en Escobar para tu mascota", location: "Escobar, Buenos Aires", price_per_night: 3000)
+Offer.create!(user_id: 1, title: "Casa con patio", description: "Hermosa casa con amplio patio, cuido a tu mascota", location: "Caballito, Buenos Aires", price_per_night: 1500)
+
+puts "Done"
+
+puts "Deleting reservations"
+Reservation.destroy_all
+
+puts "Creating reservations"
+
+Reservation.create!(offer_id: 1, user_id: 1, date_checkin: Date.parse('2022-10-03'), date_checkout: Date.parse('2022-10-10'), guests: 2, confirmed: false)
+Reservation.create!(offer_id: 2, user_id: 1, date_checkin: Date.parse('2022-9-10'), date_checkout: Date.parse('2022-9-20'), guests: 1, confirmed: true)
+Reservation.create!(offer_id: 3, user_id: 1, date_checkin: Date.parse('2022-12-03'), date_checkout: Date.parse('2022-12-10'), guests: 3, confirmed: false)
+
+puts "Done"
