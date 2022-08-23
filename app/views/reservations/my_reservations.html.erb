@@ -21,28 +21,31 @@
         <div class="card-content">
           <div class="card-section">
             <h2>Reserva para <%= reservation.offer.title %></h2>
-            <div class="rating">
+            <%# <div class="rating">
               <p>5</p>
               <i class="fa-solid fa-star"></i>
-            </div>
+            </div> %>
           </div>
-          <p>Check in: <%= reservation.date_checkin %></p>
-          <p>Check out: <%= reservation.date_checkout %></p>
-          <p>Guests: <%= reservation.guests %></p>
-          <p>Reservation status:
+          <div class="reservation-content">
+            <p>Check in: <%= reservation.date_checkin %></p>
+            <p>Check out: <%= reservation.date_checkout %></p>
+            <p>Guests: <%= reservation.guests %></p>
+            <p>Reservation status:
               <% if reservation.confirmed %>
                  <%= "Confirmed" %>
               <% else %>
                 <%= "Not Confirmed" %>
               <% end %>
-          </p>
-          <div class="movie-delete">
-              <%= link_to "Cancelar", reservation_path(reservation), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:"ms-3 text-danger" %>
-              <%= link_to "Editar reserva", edit_reservation_path(reservation), class:"ms-3 text-warning" %>
-              <%= link_to "Ver Detalles", reservation_path(reservation), class:"ms-3 text-success"  %>
+            </p>
+          </div>
+          <div class="reservation-actions">
+              <%= link_to "Cancel", reservation_path(reservation), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:"btn btn-primary btn-reservations" %>
+              <%= link_to "Edit", edit_reservation_path(reservation), class:"btn btn-primary btn-reservations" %>
+              <%= link_to "Details", reservation_path(reservation), class:"btn btn-primary btn-reservations"  %>
           </div>
         </div>
       </div>
     </div>
     <% end %>
   </div>
+</div>

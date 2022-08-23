@@ -22,7 +22,6 @@
   margin: 0;
 }
 
-
 .card-trip .card-trip-infos {
   padding: 16px;
   display: flex;
@@ -40,4 +39,14 @@
 
 .card-content {
   width: 100%;
+}
+
+.reservation-content {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.reservation-actions {
+  display: flex;
+  justify-content: space-around;
 }
