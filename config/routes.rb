@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :offers do
     resources :reservations, only: [:new, :create]
   end
-  resources :reservations, only: [:destroy, :update, :edit, :index]
+  resources :reservations, only: [:destroy, :update, :edit, :index, :show]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

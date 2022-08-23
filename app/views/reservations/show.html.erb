@@ -1,0 +1,11 @@
+<h1>Reservation details for <%= @reservation.offer.title %></h1>
+
+<p>Usuario: <%= @reservation.user.email %></p>
+<p>Check In: <%= @reservation.date_checkin %></p>
+<p>Check In: <%= @reservation.date_checkout %></p>
+<p>Guests: <%= @reservation.guests %></p>
+
+<%= simple_form_for @reservation do |r| %>
+  <%= r.input :confirmed%>
+  <%= r.button :submit, class: "btn btn-primary" %>
+<% end %>
