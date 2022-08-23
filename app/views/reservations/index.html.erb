@@ -3,7 +3,7 @@
 <% @reservations.each do |reservation| %>
   <h2>Reservation for: <%= reservation.offer.title %></h2>
   <ul>
-    <li>User: <%= @reservation.user.email %></li>
+    <li>User: <%= reservation.user.email %></li>
     <li>Check in: <%= reservation.date_checkin %></li>
     <li>Check out: <%= reservation.date_checkout %></li>
     <li>Guests: <%= reservation.guests %></li>
