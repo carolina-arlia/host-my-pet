@@ -20,7 +20,7 @@
       <div class="card-trip-infos">
         <div class="card-content">
           <div class="card-section">
-            <h2>Reserva para <%= reservation.offer.title %></h2>
+            <h2>Booking for <%= reservation.offer.title %></h2>
             <%# <div class="rating">
               <p>5</p>
               <i class="fa-solid fa-star"></i>
@@ -39,9 +39,9 @@
             </p>
           </div>
           <div class="reservation-actions">
-              <%= link_to "Cancel", reservation_path(reservation), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:"btn btn-primary btn-reservations" %>
-              <%= link_to "Edit", edit_reservation_path(reservation), class:"btn btn-primary btn-reservations" %>
-              <%= link_to "Details", reservation_path(reservation), class:"btn btn-primary btn-reservations"  %>
+              <%= link_to "Cancel", reservation_path(reservation), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:"ms-3 text-success" %>
+              <%= link_to "Edit", edit_reservation_path(reservation), class:"ms-3 text-success" %>
+              <%= link_to "Details", reservation_path(reservation), class:"ms-3 text-success"  %>
           </div>
         </div>
       </div>

@@ -4,6 +4,11 @@ class OffersController < ApplicationController
     @offers = Offer.all
   end
 
+  def my_offers
+    @user = current_user.id
+    @offers = Offer.where(user_id: @user)
+  end
+
   def show
     @offer = Offer.find(params[:id])
     @reservation = Reservation.new
@@ -42,7 +47,7 @@ class OffersController < ApplicationController
   private
 
   def offer_params
-    params.require(:offer).permit(:title, :description, :location, :price_per_night)
+    params.require(:offer).permit(:title, :description, :location, :price_per_night, photos: [])
   end
 
 end
