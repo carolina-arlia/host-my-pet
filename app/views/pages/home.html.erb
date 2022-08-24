@@ -1,37 +1,31 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path('bannerhome.jpg') %>);">
+<div class="banner banner-home-container" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path('bannerhome.jpg') %>);">
   <div class="container">
-  <div class="banner-home">
-    <h1> <strong>Home my Pet</strong> </h1>
-    <p>The only way your pet will feel like home</p>
-    <%# <a class="btn btn-flat" href="#">Apply now</a> %>
-    <div class="formulario">
-<form>
- <div class="form-group">
-    <label for="formGroupExampleInput">Location</label>
-    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example Barcelona">
-  </div>
-    <div class="form-group col-md-4">
-      <label for="inputState">Passengers</label>
-      <select id="inputState" class="form-control">
-        <option selected>Choose</option>
-        <option>1</option>
-         <option>2</option>
-          <option>3</option>
-      </select>
-    </div>
-  </div>
-  <div class="form-group">
-  </div>
-  <button type="submit" class="btn btn-primary">Sign in</button>
-  </div>
-</form>
-</div>
-
+    <div class="banner-home">
+      <h1> <strong>Home my Pet</strong> </h1>
+      <p>The only way your pet will feel like home</p>
+      <%# <a class="btn btn-flat" href="#">Apply now</a> %>
+      <div class="formulario">
+        <form>
+          <div class="form-group">
+            <%= simple_form_for(@offer) do |f| %>
+              <%= f.input :location, input_html: {data: {location_autocomplete_target: "location"}, class: "d-none"},  wrapper_html: {data: {controller: "location-autocomplete",location_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]} } %>
+            <% end %>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputState">Passengers</label>
+            <select id="inputState" class="form-control">
+              <option selected>Choose</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+            </select>
+          </div>
+          <%= link_to "Search", offers_path, class: "btn btn-primary" %>
+        </form>
+      </div>
     </div>
   </div>
 </div>
-
-
 
 <div class="card-container-home">
 <% @offers.each do |offer| %>

@@ -3,5 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @offers = Offer.all
+    @offer = Offer.last
   end
+
 end
