@@ -1,11 +1,4 @@
 <div class="container forms-login-signup">
-  <div class="cards-container">
-      <div class="container-show-header">
-        <div class="btn btn-primary">
-          <%= link_to "Back", :back %>
-        </div>
-      </div>
-  </div>
   <div class="container mt-4">
     <div class="row">
       <div class="col-6 m-auto">
@@ -45,6 +38,7 @@
           <% end %>
 
           <p><small>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></small></p>
+          <p><%= link_to "Back", :back %></p>
         </div>
       </div>
     </div>
