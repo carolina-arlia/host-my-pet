@@ -19,7 +19,7 @@ class ReservationsController < ApplicationController
     @reservation.offer = @offer
     @reservation.user = current_user
     if @reservation.save
-      redirect_to reservations_path
+      redirect_to my_reservations_path
     else
       render 'offers/show', status: :unprocessable_entity
     end
@@ -32,14 +32,14 @@ class ReservationsController < ApplicationController
   def update
     @reservation = Reservation.find(params[:id])
     @reservation.update(reservation_params)
-    redirect_to reservations_path
+    redirect_to my_reservations_path
   end
 
   def destroy
     @reservation = Reservation.find(params[:id])
     @reservation.destroy
 
-    redirect_to reservations_path, status: :see_other
+    redirect_to my_reservations_path, status: :see_other
   end
 
   def confirm

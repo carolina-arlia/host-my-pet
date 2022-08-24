@@ -1,7 +1,8 @@
 class OffersController < ApplicationController
 
   def index
-    @offers = Offer.all
+    @user = current_user.id
+    @offers = Offer.where(user_id: @user)
   end
 
   def show
@@ -42,7 +43,7 @@ class OffersController < ApplicationController
   private
 
   def offer_params
-    params.require(:offer).permit(:title, :description, :location, :price_per_night)
+    params.require(:offer).permit(:title, :description, :location, :price_per_night, photos: [])
   end
 
 end
