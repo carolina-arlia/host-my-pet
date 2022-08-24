@@ -1,6 +1,10 @@
 class OffersController < ApplicationController
 
   def index
+    @offers = Offer.all
+  end
+
+  def my_offers
     @user = current_user.id
     @offers = Offer.where(user_id: @user)
   end
