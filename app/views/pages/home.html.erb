@@ -1,2 +1,52 @@
-<h1>Welcome to Host my Pet</h1>
-<p>Sofi will finish this page and it will be great!</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path('bannerhome.jpg') %>);">
+  <div class="container">
+  <div class="banner-home">
+    <h1> <strong>Home my Pet</strong> </h1>
+    <p>The only way your pet will feel like home</p>
+    <%# <a class="btn btn-flat" href="#">Apply now</a> %>
+    <div class="formulario">
+<form>
+ <div class="form-group">
+    <label for="formGroupExampleInput">Location</label>
+    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example Barcelona">
+  </div>
+    <div class="form-group col-md-4">
+      <label for="inputState">Passengers</label>
+      <select id="inputState" class="form-control">
+        <option selected>Choose</option>
+        <option>1</option>
+         <option>2</option>
+          <option>3</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+  </div>
+  <button type="submit" class="btn btn-primary">Sign in</button>
+  </div>
+</form>
+</div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<div class="cards-container">
+<% @offers.each do |offer| %>
+<div class="card-trip">
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+    <div class="card-trip-infos">
+      <div>
+        <h2> <%= offer.title %> </h2>
+        <p><%= offer.description %></p>
+        <h2 class="card-trip-pricing">£<%= offer.price_per_night %></h2>
+      </div>
+      <div class="card-link">
+      <h4><%= link_to offer.title, offer_path(offer) %></h4>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>
