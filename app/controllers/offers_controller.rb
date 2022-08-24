@@ -27,9 +27,11 @@ class OffersController < ApplicationController
   def create
     @offer = Offer.new(offer_params)
     @offer.user_id = current_user.id
-    @offer.save
-
-    redirect_to offers_path
+    if @offer.save
+      redirect_to my_offers_path
+    else
+      render 'offers/new', status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -40,14 +42,18 @@ class OffersController < ApplicationController
     @offer = Offer.find(params[:id])
     @offer.update(offer_params) # Will raise ActiveModel::ForbiddenAttributesError
 
-    redirect_to offers_path
+    redirect_to my_offers_path
   end
 
   def destroy
     @offer = Offer.find(params[:id])
     @offer.destroy
     # No need for app/views/restaurants/destroy.html.erb
-    redirect_to offers_path, status: :see_other
+    redirect_to my_offers_path, status: :see_other
+  end
+
+  def my_offers_show
+    show
   end
 
   private
