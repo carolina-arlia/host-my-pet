@@ -27,10 +27,13 @@ class OffersController < ApplicationController
   def create
     @offer = Offer.new(offer_params)
     @offer.user_id = current_user.id
-    @offer.save
-
-    redirect_to offers_path
+    if @offer.save
+      redirect_to my_offers_path
+    else
+      render 'offers/new', status: :unprocessable_entity
+    end
   end
+
 
   def edit
     @offer = Offer.find(params[:id])
