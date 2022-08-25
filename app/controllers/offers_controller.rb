@@ -1,7 +1,8 @@
 class OffersController < ApplicationController
 
   def index
-    @offers = Offer.all
+    # @offers = Offers.all
+    @offers = Offer.search_by_location(params[:query])
     @markers = @offers.geocoded.map do |offer|
       {
         lat: offer.latitude,

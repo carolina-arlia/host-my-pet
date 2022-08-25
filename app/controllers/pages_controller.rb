@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @offer = Offer.last
-    @offers = Offer.first(3)
+    @offers = Offer.search_by_location(params[:query])
   end
 
 end
