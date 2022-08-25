@@ -1,7 +1,18 @@
 class OffersController < ApplicationController
 
   def index
-    @offers = Offer.all
+    if params[:query].present?
+      @offers = Offer.search_by_location(params[:query])
+    else
+      @offers = Offer.all
+    end
+    # if params[:query].present?
+    #   raise
+    #   @offers = Offer.where("location ILIKE ?", "%#{params[:query]}%")
+    # else
+    #   @offers = Offer.all
+    # end
+
     @markers = @offers.geocoded.map do |offer|
       {
         lat: offer.latitude,
