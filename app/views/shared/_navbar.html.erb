@@ -20,17 +20,24 @@
             <% else %>
               <%= image_tag "avatar-logout.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% end %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <%= link_to "My reservations", my_reservations_path, class: "dropdown-item" %>
+            <div class="dropdown-menu dropdown-menu-end dropdown-navbar" aria-labelledby="navbarDropdown">
+              <div class="welcome-user">
+                <p><strong>Hola</strong></p>
+                <small><%= current_user.email %></small>
+              </div>
+              <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center"><i class="fa-solid fa-suitcase-rolling"></i> <%= link_to "My reservations", my_reservations_path, class: "dropdown-item" %></li>
                 <% if current_user.offers.size == 0 %>
-                  <%= link_to "Become a host", new_offer_path, class: "dropdown-item" %>
+                  <li class="list-group-item d-flex justify-content-between align-items-center"><%= link_to "Become a host", new_offer_path, class: "dropdown-item" %></li>
                 <% end %>
                 <% if current_user.offers.size > 0 %>
-                  <%= link_to "My offers", my_offers_path, class: "dropdown-item" %>
-                  <%= link_to "My Requests", reservations_path, class: "dropdown-item" %>
+                  <li class="list-group-item d-flex justify-content-between align-items-center"><i class="fa-solid fa-house"></i> <%= link_to "My offers", my_offers_path, class: "dropdown-item" %></li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center"><i class="fa-solid fa-paw"></i> <%= link_to "My Requests", reservations_path, class: "dropdown-item" %></li>
                 <% end %>
-                <%= link_to "My account", edit_user_registration_path, class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+                <li class="list-group-item d-flex justify-content-between align-items-center"><i class="fa-solid fa-sliders"></i> <%= link_to "My account", edit_user_registration_path, class: "dropdown-item" %></li>
+                <li class="list-group-item d-flex justify-content-between align-items-center"><i class="fa-solid fa-right-from-bracket"></i> <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %></li>
+              </ul>
+
             </div>
           </li>
         <% else %>
