@@ -1,18 +1,14 @@
-  <% if @reservation.offer.photos == [] %>
-    <% @reservation.offer.photos.each do |photo| %>
-      <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path photo.key %>);">
-          <div class="container">
-              <h1>Reservation details %></h1>
-          </div>
-      </div>
-    <% end %>
+  <% if @reservation.offer.photos[0] != nil %>
+    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @reservation.offer.photos[0].key %>);">
+
   <% else %>
     <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1600456899121-68eda5705257?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1257&q=80);">
-        <div class="container">
-            <h1>Reservation details for <%= @reservation.offer.title %></h1>
-        </div>
-    </div>
   <% end %>
+
+    <div class="container">
+        <h1>Reservation details for <%= @reservation.offer.title %></h1>
+    </div>
+  </div>
 
   <div class="container-show-reservations">
 

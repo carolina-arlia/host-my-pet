@@ -1,5 +1,5 @@
-<div class="banner banner-home-container" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path('bannerhome.jpg') %>);">
-  <div class="container">
+<div class="banner-home-container" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path('bannerhome.jpg') %>);">
+  <div class="container container-home">
     <div class="banner-home">
       <h1> <strong>Home my Pet</strong> </h1>
       <p>The only way your pet will feel like home</p>
@@ -27,20 +27,43 @@
   </div>
 </div>
 
-<div class="card-container-home">
-<% @offers.each do |offer| %>
-<div class="card-trip">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-    <div class="card-trip-infos">
-      <div>
-        <h2> <%= offer.title %> </h2>
-        <p><%= offer.description %></p>
-        <h2 class="card-trip-pricing">£<%= offer.price_per_night %></h2>
+<div class="container-my-reservations">
+  <div class="cards-container">
+      <h3>Recommendations</h3>
+      <div class="container-show-header">
+        <%# <div class="botton-show">
+          <%= link_to "Add a Movie", new_list_bookmark_path(@list), class: "btn btn-success" %>
+        <%# </div> %>
       </div>
-      <div class="card-link">
-      <h4><%= link_to offer.title, offer_path(offer) %></h4>
+  </div>
+
+  <div class="cards">
+    <% @offers.each do |offer| %>
+    <div class="card-trip">
+        <% if offer.photos[0] != nil %>
+            <%= cl_image_tag offer.photos[0].key  %>
+        <% else %>
+            <img src="https://images.unsplash.com/photo-1543051932-6ef9fecfbc80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=424&q=80" />
+        <% end %>
+      <div class="card-trip-infos">
+        <div class="card-content">
+          <div class="card-section">
+            <div class="card-section-title">
+              <h2><%= offer.title %></h2>
+              <h2 class="card-home-pricing"><em>$<%= offer.price_per_night.round %></em></h2>
+            </div>
+            <p><small><%= offer.location %></small></p>
+          </div>
+          <div class="reservation-content">
+            <p><%= offer.description %></p>
+            <p><small>Hosted by: <%= offer.user.full_name %></small></p>
+          </div>
+          <div class="reservation-actions">
+            <%= link_to "More details", offer_path(offer), class:"ms-3 text-success" %>
+          </div>
+        </div>
       </div>
     </div>
+    <% end %>
   </div>
-<% end %>
 </div>
