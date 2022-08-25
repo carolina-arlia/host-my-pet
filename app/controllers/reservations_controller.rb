@@ -42,10 +42,10 @@ class ReservationsController < ApplicationController
     redirect_to my_reservations_path, status: :see_other
   end
 
-  def confirm
-    @reservation = Reservation.find(params[:id])
-    @reservation.confirmed = true
-  end
+  # def confirm
+  #   @reservation = Reservation.find(params[:id])
+  #   @reservation.confirmed = true
+  # end
 
   def my_reservations
     index

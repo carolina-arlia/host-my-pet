@@ -5,5 +5,4 @@ class PagesController < ApplicationController
     @offer = Offer.last
     @offers = Offer.first(3)
   end
-
 end

@@ -7,9 +7,18 @@
       <div class="formulario">
         <form>
           <div class="form-group">
+            <%= form_tag(offers_path, :method => "get") do %>
+              <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a host" %>
+              <%= submit_tag "Search", class: "btn btn-primary" %>
+            <% end %>
+
+
+
+            <!--
             <%= simple_form_for(@offer) do |f| %>
               <%= f.input :location, input_html: {data: {location_autocomplete_target: "location"}, class: "d-none"},  wrapper_html: {data: {controller: "location-autocomplete",location_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]} } %>
-            <% end %>
+            <% end %> -->
+
           </div>
           <div class="form-group col-md-4">
             <label for="inputState">Passengers</label>
@@ -67,3 +76,5 @@
     <% end %>
   </div>
 </div>
+
+<%= console %>
