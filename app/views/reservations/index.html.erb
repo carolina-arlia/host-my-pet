@@ -16,7 +16,11 @@
   <div class="cards">
     <% @reservations.each do |reservation| %>
     <div class="card-trip">
-      <img src="https://images.unsplash.com/photo-1543051932-6ef9fecfbc80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=424&q=80" />
+        <% if reservation.offer.photos[0] != nil %>
+          <%= cl_image_tag reservation.offer.photos[0].key  %>
+        <% else %>
+          <img src="https://images.unsplash.com/photo-1543051932-6ef9fecfbc80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=424&q=80" />
+        <% end %>
       <div class="card-trip-infos">
         <div class="card-content">
           <div class="card-section">

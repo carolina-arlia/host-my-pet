@@ -30,3 +30,13 @@
 .footer .fa-heart {
   color: #D23333;
 }
+
+@media (max-width: 654px) {
+  .footer-copyright {
+    display: none;
+  }
+
+  .footer {
+    justify-content: center;
+  }
+}
