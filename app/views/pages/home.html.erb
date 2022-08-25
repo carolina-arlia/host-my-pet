@@ -7,10 +7,12 @@
       <div class="formulario">
         <form>
           <div class="form-group">
-            <%= form_with url: offers_path, method: :get, class: "d-flex" do %>
+            <%= form_tag(offers_path, :method => "get") do %>
               <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a host" %>
               <%= submit_tag "Search", class: "btn btn-primary" %>
             <% end %>
+
+
 
             <!--
             <%= simple_form_for(@offer) do |f| %>
@@ -74,3 +76,5 @@
     <% end %>
   </div>
 </div>
+
+<%= console %>
