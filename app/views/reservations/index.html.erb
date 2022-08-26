@@ -16,7 +16,7 @@
   <div class="cards">
     <% @reservations.each do |reservation| %>
 
-      <% if current_user.id == reservation.offer_id %>
+      <% if current_user.id == reservation.user_id %>
       <% else %>
         <div class="card-trip">
           <% if reservation.offer.photos[0] != nil %>
