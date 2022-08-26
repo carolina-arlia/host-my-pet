@@ -1,15 +1,18 @@
-<% if @offer.photos[0] != nil %>
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @offer.photos[0].key %>);">
-
-<% else %>
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1583091618471-56becbdb1c00?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1232&q=80);">
-<% end %>
-    <div class="container">
-        <h1><%= @offer.title %></h1>
+<div class="fotos d-flex m-4">
+  <div class="foto m-2">
+    <img src="<%= cl_image_path @offer.photos[0].key %>"
+      class="d-block w-100"
+      alt="Canyon at Nigh"/>
     </div>
-  </div>
 
-  <div class="container-show-reservations">
+      <div class="foto ml-2 m-2">
+    <img src="<%= cl_image_path @offer.photos[1].key %>"
+      class="d-block w-100"
+      alt="Canyon at Nigh"/>
+    </div>
+</div>
+
+  <div class="container-show-reservations mt-0">
 
       <div class="container container-reservation-content">
         <%# <div class="botton-show">
@@ -17,17 +20,24 @@
         <%# </div> %>
 
         <div class="my-reservation-details">
-          <h2><%= @offer.title %></h2>
-          <p> <small><%= @offer.location %> </small></p>
-          <hr><br>
+
+          <div class= "d-flex justify-content-between">
+            <div>
+              <h2><%= @offer.title %></h2>
+              <p> <small><%= @offer.location %> </small></p>
+              <hr><br>
+            </div>
+
+            <div class="botton-show cancellation-show">
+              <%= link_to "Edit offer", edit_offer_path, class: "btn btn-primary" %>
+              <%= link_to "Delete", offer_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-primary" %>
+              <%= link_to "Booking requests", reservations_path, class: "btn btn-primary" %>
+            </div>
+
+          </div>
           <p> Hosted by: <%= @offer.user.full_name %> </p>
           <p><em>Un poco mas sobre el lugar:</em></p>
           <p> <%= @offer.description %> </p>
-        </div>
-
-        <div class="botton-show cancellation-show">
-          <%= link_to "Edit offer", edit_offer_path, class: "btn btn-primary" %>
-          <%= link_to "Delete", offer_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-primary" %>
         </div>
 
       </div>
