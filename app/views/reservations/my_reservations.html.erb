@@ -4,15 +4,19 @@
   </div>
 </div>
  %>
-<div class="boris-card">
-  <img src="https://images.unsplash.com/photo-1585664811087-47f65abbad64?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80" />
-    <div class="card-boris-infos">
-    <h2>My reservation</h2>
-    <p>Everything. Right, where you need it.<strong> Feel welcome</strong> </p>
-    </div>
-</div>
+
 
 <div class="container-my-reservations">
+
+  <div class="boris-card mb-5 p-0">
+  <img src="https://images.unsplash.com/photo-1585664811087-47f65abbad64?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80" />
+    <div class="card-boris-infos p-3">
+    <h2>My reservations</h2>
+    <p>Check your upcoming <strong> bookings</strong> </p>
+  </div>
+
+</div>
+
   <div class="cards-container">
       <div class="container-show-header">
         <%# <div class="botton-show">
@@ -21,7 +25,7 @@
       </div>
   </div>
 
-  <div class="cards">
+  <div class="cards mt-3">
     <% @reservations.each do |reservation| %>
     <div class="card-trip">
       <% if reservation.offer.photos[0] != nil %>
@@ -39,6 +43,7 @@
               <i class="fa-solid fa-star"></i>
             </div> %>
           </div>
+
           <div class="reservation-content">
             <p>Check in: <%= reservation.date_checkin %></p>
             <p>Check out: <%= reservation.date_checkout %></p>
@@ -51,6 +56,7 @@
               <% end %>
             </p>
           </div>
+
           <div class="reservation-actions">
               <%= link_to "Cancel", reservation_path(reservation), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:"ms-3 text-success" %>
               <%= link_to "Edit", edit_reservation_path(reservation), class:"ms-3 text-success" %>
