@@ -1,9 +1,10 @@
 class ReservationsController < ApplicationController
   before_action :set_offer, only: [:new, :create]
 
+  # My requests
   def index
-    @user = current_user.id
-    @reservations = Reservation.where(user_id: @user)
+    # @user = current_user.id
+    @reservations = Reservation.all
   end
 
   def show
@@ -47,8 +48,9 @@ class ReservationsController < ApplicationController
   #   @reservation.confirmed = true
   # end
 
+  # Las reservas que yo hago
   def my_reservations
-    index
+      @reservations = Reservation.all
   end
 
   private

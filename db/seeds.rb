@@ -35,7 +35,7 @@ end
 
 offer1.save!
 
-offer2 = Offer.new(user: user1, title: "Hermosa casa en Escobar", description: "Super estadia en Escobar para tu mascota", location: "Escobar, Buenos Aires", price_per_night: 3000)
+offer2 = Offer.new(user: user2, title: "Hermosa casa en Escobar", description: "Super estadia en Escobar para tu mascota", location: "Escobar, Buenos Aires", price_per_night: 3000)
 photos_offer2 = [URI.open("https://images.unsplash.com/photo-1501183638710-841dd1904471?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"), URI.open("https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80")]
 
 photos_offer2.each do |photo|
@@ -57,8 +57,8 @@ puts "Done"
 
 puts "Creating reservations"
 
-Reservation.create!(offer: offer1, user: user1, date_checkin: Date.parse('2022-10-03'), date_checkout: Date.parse('2022-10-10'), guests: 2, confirmed: false)
+Reservation.create!(offer: offer1, user: user2, date_checkin: Date.parse('2022-10-03'), date_checkout: Date.parse('2022-10-10'), guests: 2, confirmed: false)
 Reservation.create!(offer: offer2, user: user1, date_checkin: Date.parse('2022-9-10'), date_checkout: Date.parse('2022-9-20'), guests: 1, confirmed: true)
-Reservation.create!(offer: offer3, user: user2, date_checkin: Date.parse('2022-12-03'), date_checkout: Date.parse('2022-12-10'), guests: 3, confirmed: false)
+Reservation.create!(offer: offer3, user: user1, date_checkin: Date.parse('2022-12-03'), date_checkout: Date.parse('2022-12-10'), guests: 3, confirmed: false)
 
 puts "Done"

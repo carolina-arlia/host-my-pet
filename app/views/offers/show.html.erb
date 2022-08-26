@@ -33,7 +33,10 @@
                     <%= r.input :date_checkin, as: :date %>
                     <%= r.input :date_checkout, as: :date %>
                     <%= r.input :guests %>
+                    <% if current_user.id == @offer.user_id %>
+                    <% else %>
                     <%= r.button :submit, class: "btn btn-primary" %>
+                    <% end %>
                   <% end %>
                 </div>
             </div>
