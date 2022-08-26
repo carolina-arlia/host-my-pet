@@ -1,7 +1,7 @@
 class OffersController < ApplicationController
 
   def index
-    if params[:query].present?
+    if params[:query].present? && Offer.search_by_location(params[:query]).size > 0
       @offers = Offer.search_by_location(params[:query])
     else
       @offers = Offer.all

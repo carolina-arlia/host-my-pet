@@ -15,33 +15,33 @@
 
   <div class="cards">
     <% @reservations.each do |reservation| %>
-    <div class="card-trip">
+      <div class="card-trip">
         <% if reservation.offer.photos[0] != nil %>
           <%= cl_image_tag reservation.offer.photos[0].key  %>
         <% else %>
           <img src="https://images.unsplash.com/photo-1543051932-6ef9fecfbc80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=424&q=80" />
         <% end %>
-      <div class="card-trip-infos">
-        <div class="card-content">
-          <div class="card-section">
-            <h2>Booking for <%= reservation.offer.title %></h2>
-          </div>
-          <div class="reservation-content">
-            <p>Guest Owner: <%= reservation.user.full_name %></p>
-            <p>Check in: <%= reservation.date_checkin %></p>
-            <p>Check out: <%= reservation.date_checkout %></p>
-            <p>Number of Guests: <%= reservation.guests %></p>
-          </div>
-          <div class="reservation-actions">
-                <%= simple_form_for reservation do |r| %>
+        <div class="card-trip-infos">
+          <div class="card-content">
+            <div class="card-section">
+              <h2>Booking for <%= reservation.offer.title %></h2>
+            </div>
+            <div class="reservation-content">
+              <p>Guest Owner: <%= reservation.user.full_name %></p>
+              <p>Check in: <%= reservation.date_checkin %></p>
+              <p>Check out: <%= reservation.date_checkout %></p>
+              <p>Number of Guests: <%= reservation.guests %></p>
+            </div>
+            <div class="reservation-actions">
+              <%= simple_form_for reservation do |r| %>
                 <%= r.input :confirmed %>
                 <%# <%= link_to "Confirmed", reservations_path, class: "form-check-input", type: "checkbox", value: "" %>
                 <%= r.submit "Update", class: "btn btn-primary" %>
-                <% end %>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
     <% end %>
   </div>
 </div>
