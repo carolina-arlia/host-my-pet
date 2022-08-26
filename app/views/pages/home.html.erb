@@ -1,48 +1,40 @@
 <div class="banner-home-container" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path('bannerhome.jpg') %>);">
   <div class="container container-home">
     <div class="banner-home">
-      <h1> <strong>Home my Pet</strong> </h1>
-      <p>The only way your pet will feel like home</p>
+      <h1> <strong>Host my Pet</strong> </h1>
+      <p><span data-controller="typed-js"></span></p>
       <%# <a class="btn btn-flat" href="#">Apply now</a> %>
       <div class="formulario">
-        <form>
-          <div class="form-group">
-
+        <div class="form-group">
           <%= form_with url: offers_path, method: :get do %>
             <div class="input-group">
-              <%= text_field_tag :query, params[:query], class: "form-control", placeholder: 'Prueba "Diseño UX/UI"' %>
-              <div class="input-group-append">
-                <%= submit_tag "Explora", class: "btn btn-primary m-0 border-0 ", id:"basic-addon2" %>
-              </div>
+              <%= text_field_tag :query, params[:query], class: "form-control", placeholder: 'Search by location' %>
             </div>
+            <div class="input-group">
+              <select id="inputState" class="form-control">
+                <option selected >Number of pets</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+              </select>
+            </div>
+            <%= submit_tag "Search", class: "btn btn-primary m-0 border-0 ", id:"basic-addon2" %>
           <% end %>
-
+        </div>
+      </div>
             <!--
             <%= simple_form_for(@offer) do |f| %>
               <%= f.input :location, input_html: {data: {location_autocomplete_target: "location"}, class: "d-none"},  wrapper_html: {data: {controller: "location-autocomplete",location_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]} } %>
-            <% end %> -->
-
-          </div>
-          <div class="form-group col-md-4">
-            <label for="inputState">Passengers</label>
-            <select id="inputState" class="form-control">
-              <option selected>Choose</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-            </select>
-          </div>
+            <% end %>
           <%= link_to "Search", offers_path, class: "btn btn-primary" %>
-
-        </form>
-      </div>
+          -->
     </div>
   </div>
 </div>
 
 <div class="container-my-reservations">
   <div class="cards-container">
-      <h3>Recommendations</h3>
+      <h3>Recommended</h3>
       <div class="container-show-header">
         <%# <div class="botton-show">
           <%= link_to "Add a Movie", new_list_bookmark_path(@list), class: "btn btn-success" %>
@@ -80,4 +72,3 @@
     <% end %>
   </div>
 </div>
-
