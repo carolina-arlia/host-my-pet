@@ -1,22 +1,48 @@
-  <% if @offer.photos[0] != nil %>
-    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @offer.photos[0].key %>);">
+  <!--
+  <div class ="home-banner">
+    <% if @offer.photos[0] != nil %>
+      <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @offer.photos[0].key %>);">
 
-  <% else %>
-    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1583091618471-56becbdb1c00?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1232&q=80);">
-  <% end %>
+    <% else %>
+      <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1583091618471-56becbdb1c00?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1232&q=80);">
+      </div>
 
     <div class="container">
-        <h1><%= @offer.title %></h1>
+      <h1><%= @offer.title %></h1>
     </div>
   </div>
+  <% end %>
+  -->
+
+
+
+<!-- CAROUSEL BOOSTRAP -->
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <%= image_tag("https://images.unsplash.com/photo-1548025396-689d647d00c5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1047&q=80", style: 'display: block; margin: auto; width: 60%; height:300px;')%>
+      </div>
+
+      <div class="carousel-item">
+        <%= image_tag("https://images.unsplash.com/photo-1423483641154-5411ec9c0ddf?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8YXJnZW50aW5pYW4lMjB3aW5lfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60", style: 'display: block; margin: auto; width: 100%; height:900px;') %>
+      </div>
+    </div>
+
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+<!-- CAROUSEL BOOSTRAP -->
 
   <div class="container-show-reservations">
 
       <div class="container container-reservation-content">
-        <%# <div class="botton-show">
-          <%= link_to "Back to My Reservations", my_reservations_path, class: "btn btn-primary" %>
-        <%# </div> %>
-
         <div class="my-reservation-details">
           <h2><%= @offer.title %></h2>
           <p> <small><%= @offer.location %> </small></p>
@@ -25,12 +51,6 @@
           <p><em>Un poco mas sobre el lugar:</em></p>
           <p> <%= @offer.description %> </p>
         </div>
-
-        <div class="botton-show cancellation-show">
-          <%= link_to "Edit offer", edit_offer_path, class: "btn btn-primary" %>
-          <%= link_to "Delete", offer_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-primary" %>
-        </div>
-
       </div>
 
       <div class="container">
@@ -50,5 +70,4 @@
           </div>
         </div>
       </div>
-
   </div>

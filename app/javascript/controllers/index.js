@@ -15,3 +15,11 @@ application.register("location-autocomplete", LocationAutocompleteController)
 
 import MapController from "./map_controller"
 application.register("map", MapController)
+
+// STIMULUS CAROUSEL app/javascript/controllers/index.js
+
+import { Application } from '@hotwired/stimulus'
+import Carousel from 'stimulus-carousel'
+
+const application = Application.start()
+application.register('carousel', Carousel)
