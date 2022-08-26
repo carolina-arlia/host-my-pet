@@ -1,7 +1,15 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1534361960057-19889db9621e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);">
+<%# <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1534361960057-19889db9621e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);">
   <div class="container">
     <h1>My Reservations </h1>
   </div>
+</div>
+ %>
+<div class="boris-card">
+  <img src="https://images.unsplash.com/photo-1585664811087-47f65abbad64?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80" />
+    <div class="card-boris-infos">
+    <h2>My reservation</h2>
+    <p>Everything. Right, where you need it.<strong> Feel welcome</strong> </p>
+    </div>
 </div>
 
 <div class="container-my-reservations">
@@ -37,7 +45,7 @@
             <p>Guests: <%= reservation.guests %></p>
             <p>Reservation status:
               <% if reservation.confirmed %>
-                 <%= "Confirmed" %>
+                <%= "Confirmed" %>
               <% else %>
                 <%= "Not Confirmed" %>
               <% end %>
